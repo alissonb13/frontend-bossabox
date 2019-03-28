@@ -1,0 +1,23 @@
+.custom-link {
+    color: #170C3A;
+}
+
+.custom-link:hover {
+    color: #F95E5A;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+.tags {
+    font-weight: 600;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.clicavel {
+    cursor: pointer;
+}

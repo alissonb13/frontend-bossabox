@@ -10,3 +10,13 @@
  body {
      font-weight: 400;
  }
+
+ .custom-button {
+     background-color: #4C4499;
+     color: #FFFFFF;
+ }
+
+ .custom-button:hover {
+    background-color: #353372;
+    color: #FFFFFF;
+ }

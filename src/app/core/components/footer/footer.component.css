@@ -1,0 +1,15 @@
+* {
+    color: #170C3A;
+}
+
+.img-logo-footer {
+    width: 80px;
+}
+
+.m-custom-link {
+    margin: auto 15px;
+}
+
+a {
+    cursor: pointer;
+}

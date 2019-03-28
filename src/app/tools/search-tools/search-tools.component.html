@@ -1,0 +1,23 @@
+<form [formGroup]="searchForm"> 
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <label class="sr-only" for="search-tools">Search</label>
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <input formControlName="searchTerm" type="text" class="form-control" id="search-tools" placeholder="search">
+      </div>
+    </div>
+    <div class="col-auto my-1">
+      <div class="custom-control custom-checkbox mb-2">
+        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+        <label class="custom-control-label" for="customControlAutosizing">
+          search in tags only
+        </label>
+      </div>
+    </div>
+  </div>
+</form>

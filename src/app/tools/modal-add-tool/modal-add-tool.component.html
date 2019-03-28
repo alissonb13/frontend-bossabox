@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="modal-body">
+    <h5 class="modal-title mb-3"> 
+      <i class="fa fa-plus"></i> Add New Tool
+    </h5>
+    <form [formGroup]="toolForm">
+      <div class="form-group">
+        <label>Tool Name</label>
+        <input formControlName="title" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label>Tool Link</label>
+        <input formControlName="link" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label>Tool Description</label>
+        <textarea formControlName="description" class="form-control"></textarea>
+      </div>
+      <div class="form-grup">
+        <label>Tags</label>
+        <input (keyup)="transform($event.target.value)" formControlName="tags" class="form-control" type="text">
+      </div>
+      <button (click)="addTool()" class="btn custom-button mt-4 mb-3 pull-right">
+        Add Tool
+      </button>
+    </form>
+  </div>
+</div>

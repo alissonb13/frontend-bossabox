@@ -1,0 +1,37 @@
+<div class="card mb-2">
+    <div class="card-body">
+        <div class="row">
+            <h4 class="col-md-6">
+                <a [href]="tool.link" target="blank">
+                {{tool.title}}
+                </a>
+            </h4>
+            <a class="no-decoration col-md-2 offset-md-4 align-right">
+                <span (click)="openModalRemoveTool(removeTool)" 
+                      class="custom-link clicavel">
+                    <i class="fa fa-times"></i> remove
+                </span>
+            </a>
+        </div>
+        <div class="row">
+            <p class="col-auto card-text">
+                {{tool.description}}
+            </p>
+        </div>
+        <div class="row">
+            <p class="col-auto mt-2">
+                <span class="tags" *ngFor="let tag of tool.tags">
+                    #{{tag}}  
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<ng-template #removeTool>
+    <app-modal-remove-tool 
+        [tool]="tool" 
+        (closeModal)="closeModal($event)"
+        (toolRemoved)="toolRemoved($event)">
+    </app-modal-remove-tool>
+</ng-template>
