@@ -18,9 +18,14 @@
       </div>
       <div class="form-grup">
         <label>Tags</label>
-        <input (keyup)="transform($event.target.value)" formControlName="tags" class="form-control" type="text">
+        <input (keyup)="includeTag($event.target.value)" formControlName="tags" class="form-control" type="text">
+        <div class="mt-3" *ngIf="tags.length > 0">
+          <label class="tag" *ngFor="let tag of tags">
+            {{tag}} <i (click)="removeTag(tag)" class="remove mf-3 fa fa-remove"></i>
+          </label>
+        </div>
       </div>
-      <button (click)="addTool()" class="btn custom-button mt-4 mb-3 pull-right">
+      <button [disabled]="formInvalid" (click)="addTool()" class="btn custom-button mt-4 mb-3 pull-right">
         Add Tool
       </button>
     </form>

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Tool } from 'src/app/shared/models/tool.model';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToolsService } from 'src/app/core/services/tools.service';
 
 @Component({
@@ -12,40 +12,48 @@ export class ModalAddToolComponent implements OnInit {
   @Output() toolAdded = new EventEmitter<Tool>();
 
   toolForm: FormGroup;
-
+  tags: string[] = [];
   constructor(private formBuilder: FormBuilder,
               private toolsService: ToolsService) { }
 
   ngOnInit() {
     this.toolForm = this.formBuilder.group({
-      title: '',
-      link: '',
-      description: '',
-      tags: new Array<string>()
+      title: ['', Validators.required],
+      link: ['', Validators.required],
+      description: ['', Validators.required],
+      tags: [new Array<string>(), Validators.required]
     });
   }
 
   addTool() {
     const tool = this.toolForm.getRawValue();
+    tool.tags =  this.tags;
+    console.log(tool);
 
-    this.toolsService.addTool(tool)
-      .subscribe(
-        () => {
-          this.toolAdded.emit(tool);
-        }
-      );
+    if(tool && this.tags) {
+      this.toolsService.addTool(tool)
+        .subscribe(
+          () => {
+            this.toolAdded.emit(tool);
+          }
+        );
+    }
   }
 
-  transform(value: string) {
-    let tags: string[] = [];
-    let array = value.split(' ');
+  includeTag(tag: string) {
+    let findSpace = tag.indexOf(' ') >= 0;
 
-    array.forEach((value, index) => {
-      if(value !== '') {
-        tags.push(value);
-      } 
+    if(findSpace) {
+      this.tags.push(tag.trim());
+      console.log(this.tags);
+
+      this.toolForm.get('tags').setValue('');
+    }
+  }
+
+  removeTag(tag: string) {
+    this.tags = this.tags.filter((value) => {
+      return value !== tag;
     });
-
-    console.log(tags);
   }
 }

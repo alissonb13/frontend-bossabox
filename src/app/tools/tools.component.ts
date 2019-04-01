@@ -13,6 +13,8 @@ import { ListManagerService } from '../core/services/list-manager.service';
 export class ToolsComponent implements OnInit {
   modalAddTool: BsModalRef;
 
+  filter: any;
+
   tools$: Observable<Array<Tool>>;
 
   constructor(private toolsService: ToolsService,
