@@ -15,7 +15,8 @@ export class ToolsComponent implements OnInit {
   modalAddTool: BsModalRef;
 
   filter: string;
-  parametersSearch: any;
+  onlyTags: boolean;  
+  query: any;
 
   tools$: Observable<Array<Tool>>;
 
@@ -36,11 +37,30 @@ export class ToolsComponent implements OnInit {
     this.listManagerService.update.subscribe(() => this.tools$ = this.toolsService.getTools());
   }
 
-  searchOnlyTags(event) {
-    this.parametersSearch = {
-      searchTerm: this.filter, 
-      onlyTags: event
+  searchFilter(term: string) {
+    this.filter = term;
+    if(this.filter !== '') {
+      this.buildQueryParams();
+      this.tools$ = this.toolsService.getTools(this.query);
+    } else {
+      this.tools$ = this.toolsService.getTools();
     }
+
+    return this.filter;
+  }
+  
+  buildQueryParams() {
+    if(this.onlyTags) {
+      this.query = { tags_like: this.filter };
+    } else {
+      this.query = { q: this.filter };
+    }
+
+    console.log(this.query);
+  }
+
+  searchOnlyTags(onlyTags: boolean) {
+    this.onlyTags = onlyTags;
   }
 
   toolAdded(added) {

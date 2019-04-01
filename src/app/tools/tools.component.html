@@ -1,7 +1,7 @@
-<div class="container mt-5" *ngIf="(tools$ | async | filterSearch: parametersSearch) as tools; else loading">
+<div class="container mt-5">
   <div class="row mb-3">
     <div class="col-md-8">
-      <app-search-tools (searchTerm)="filter = $event" 
+      <app-search-tools (searchTerm)="searchFilter($event)" 
                         (searchOnlyTags)="searchOnlyTags($event)"
                         [valueSearch]="filter">
       </app-search-tools>
@@ -12,8 +12,9 @@
       </button>
     </div>
   </div>
-  
-  <app-card-tool *ngFor="let tool of tools" [tool]="tool"></app-card-tool>
+  <div *ngIf="(tools$ | async) as tools; else loading">
+    <app-card-tool *ngFor="let tool of tools" [tool]="tool"></app-card-tool>
+  </div>
 </div>
 
 <ng-template #addTool>

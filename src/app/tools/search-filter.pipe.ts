@@ -1,45 +1,41 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import { Tool } from '../shared/models/tool.model';
 import { ToolsService } from '../core/services/tools.service';
+import { tap } from 'rxjs/operators';
 
 @Pipe({
     name: 'filterSearch'
 })
 export class FilterSearch implements PipeTransform {
+    query: any;
+    toolsTemp: Tool[] = [];
 
     constructor(private toolsService: ToolsService) { }
 
     transform(tools: Tool[], parameters?: any) {
-        let query: any;
-        let toolstest: Tool[] = [];
+       
 
-        if(parameters) {
+        console.log(parameters);
+        if(parameters !== null || parameters !== undefined) {
             if(parameters.onlyTags) {
-                query = { tags_like: parameters.searchTerm };
+                this.query = { tags_like: parameters.searchTerm };
             } else {
-                query = { q: parameters.searchTerm };
+                this.query = { q: parameters.searchTerm };
             }
 
-            console.log(query);
+            this.searchTerms();
 
-            this.toolsService.getTools(query)
-            .subscribe(response => {
-                if(response) {
-                    toolstest = response.filter((tool) => {
-                        return tool;
-                    });
-
-                    console.log(toolstest);
-                }
-            });
-
-            console.log(toolstest);
-
-            console.log(tools);
-
-            return tools;
+            console.log(this.toolsTemp);
+            return this.toolsTemp;
         } else {
             return tools;
         }
+    }
+
+    private  searchTerms() {
+        this.toolsService.getTools(this.query)
+            .pipe(
+                tap(tools => this.toolsTemp = tools)
+            );
     }
 }

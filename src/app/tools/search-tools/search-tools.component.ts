@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy, Input } from '@angular/core';
-import { debounceTime, debounce } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -32,7 +32,6 @@ export class SearchToolsComponent implements OnInit, OnDestroy {
 
   searchInputEvent() {
     this.checkOnlytags();
-    console.log(this.searchString);
     this.searchTerm.emit(this.searchString);
   }
 
