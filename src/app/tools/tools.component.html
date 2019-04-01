@@ -1,7 +1,8 @@
-<div class="container mt-5" *ngIf="(tools$ | async | filterSearch: filter) as tools; else loading">
+<div class="container mt-5" *ngIf="(tools$ | async | filterSearch: parametersSearch) as tools; else loading">
   <div class="row mb-3">
     <div class="col-md-8">
       <app-search-tools (searchTerm)="filter = $event" 
+                        (searchOnlyTags)="searchOnlyTags($event)"
                         [valueSearch]="filter">
       </app-search-tools>
     </div>

@@ -9,6 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class SearchToolsComponent implements OnInit, OnDestroy {
   @Output() searchTerm = new EventEmitter<string>();
+  @Output() searchOnlyTags = new EventEmitter<boolean>();
   @Input() valueSearch: any;
   debounce = new Subject<string>();
 
@@ -23,16 +24,16 @@ export class SearchToolsComponent implements OnInit, OnDestroy {
 
   checkOnlytags() {
     if(this.onlyTags) {
-      this.query = { tags_like: this.searchString };
+      this.searchOnlyTags.emit(true);
     } else {
-      this.query = { q: this.searchString };
+      this.searchOnlyTags.emit(false);
     }
   }
 
   searchInputEvent() {
     this.checkOnlytags();
     console.log(this.searchString);
-    this.searchTerm.emit(this.query);
+    this.searchTerm.emit(this.searchString);
   }
 
   ngOnDestroy() {

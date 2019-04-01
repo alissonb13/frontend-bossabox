@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Tool } from '../shared/models/tool.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ListManagerService } from '../core/services/list-manager.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tools',
@@ -13,7 +14,8 @@ import { ListManagerService } from '../core/services/list-manager.service';
 export class ToolsComponent implements OnInit {
   modalAddTool: BsModalRef;
 
-  filter: any;
+  filter: string;
+  parametersSearch: any;
 
   tools$: Observable<Array<Tool>>;
 
@@ -32,6 +34,13 @@ export class ToolsComponent implements OnInit {
 
   updateList() {
     this.listManagerService.update.subscribe(() => this.tools$ = this.toolsService.getTools());
+  }
+
+  searchOnlyTags(event) {
+    this.parametersSearch = {
+      searchTerm: this.filter, 
+      onlyTags: event
+    }
   }
 
   toolAdded(added) {
