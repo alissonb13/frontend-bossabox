@@ -45,8 +45,6 @@ export class ToolsComponent implements OnInit {
     } else {
       this.tools$ = this.toolsService.getTools();
     }
-
-    return this.filter;
   }
   
   buildQueryParams() {
