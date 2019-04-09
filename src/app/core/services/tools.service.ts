@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tool } from 'src/app/shared/models/tool.model';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { getHttpQueryParams } from '../helpers/utils';
 
 const API_URL = 'http://localhost:3000/tools';
