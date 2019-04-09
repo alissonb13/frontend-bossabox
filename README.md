@@ -19,7 +19,7 @@ OBS: é muito recomendável, para a execução desse projeto, que o ambiente pos
 
 ## Como executar:
 
-1. Faça o clone do projeto. Abra o terminal e execute o comando: git clone `https://github.com/alissonb13/frontend-bossabox.git`.
+1. Faça o clone do projeto. Abra o terminal e execute o comando: `git clone https://github.com/alissonb13/frontend-bossabox.git`.
 
 2. Ainda no terminal, navegue até o diretório do projeto e faça o download das dependências executando o comando `npm install`.
 
@@ -29,6 +29,6 @@ OBS: é muito recomendável, para a execução desse projeto, que o ambiente pos
 
 Caso seja de seu interesse manter esta aplicação em produção, basta executar o comando `ng build --prod` e na pasta `dist/` se encontrarão os arquivos necessários para a execução em ambiente de produção. Se, por algum motivo, você queira buildar o projeto para outro ambiente que não seja produção basta executar somente o comando `ng build`, sem o `--prod`.
 
-## Running unit tests
+## Teste com Karma
 
 O comando `ng test` executa os testes via [Karma](https://karma-runner.github.io).
