@@ -25,10 +25,10 @@ OBS: é muito recomendável, para a execução desse projeto, que o ambiente pos
 
 3. Após a instalação das dependências, basta executar o comando `ng serve` e então, caso tudo tenha sido instalado e configurado com sucesso, a aplicação estará disponível no endereço `http://localhost:4200/`.
 
-## Build
+## Build:
 
 Caso seja de seu interesse manter esta aplicação em produção, basta executar o comando `ng build --prod` e na pasta `dist/` se encontrarão os arquivos necessários para a execução em ambiente de produção. Se, por algum motivo, você queira buildar o projeto para outro ambiente que não seja produção basta executar somente o comando `ng build`, sem o `--prod`.
 
-## Teste com Karma
+## Teste com Karma:
 
 O comando `ng test` executa os testes via [Karma](https://karma-runner.github.io).
