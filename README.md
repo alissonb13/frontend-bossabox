@@ -10,10 +10,10 @@ O projeto não tem o objetivo de ser uma solução pronta para usar em produçã
 
 Este projeto foi implementando o usando o Angular 7 e os seguintes frameworks:
 
-[Angular CLI](https://github.com/angular/angular-cli) - versão 7.3.5
-[NPM - Node.JS(v10.15.3)](https://nodejs.org/en/) - versão 6.4.1
-[Bootstrap](https://getbootstrap.com/) - versão 4.3.1
-[Ngx-Bootstrap](https://valor-software.com/ngx-bootstrap/#/) - versão 3.2.0
+* [Angular CLI](https://github.com/angular/angular-cli) - versão 7.3.5
+* [NPM - Node.JS(v10.15.3)](https://nodejs.org/en/) - versão 6.4.1
+* [Bootstrap](https://getbootstrap.com/) - versão 4.3.1
+* [Ngx-Bootstrap](https://valor-software.com/ngx-bootstrap/#/) - versão 3.2.0
 
 OBS: é muito recomendável, para a execução desse projeto, que o ambiente possua o Angular CLI e de extrema importância que o Node.JS esteja também instalado no ambiente.
 
