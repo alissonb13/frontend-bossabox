@@ -25,6 +25,8 @@ OBS: é muito recomendável, para a execução desse projeto, que o ambiente pos
 
 3. Após a instalação das dependências, basta executar o comando `ng serve` e então, caso tudo tenha sido instalado e configurado com sucesso, a aplicação estará disponível no endereço `http://localhost:4200/`.
 
+4. OPCIONAL: Você pode clonar o repositório disponibilizado pela Bossabox com uma Fake-API que pode ser encontrada nesse link: https://gitlab.com/bossabox/challenge-fake-api. Assim poderá utilizar todos os recursos da aplicação sempre problemas. No READ.ME do repositório da API ensina como configurar e executar a API.
+
 ## Build:
 
 Caso seja de seu interesse manter esta aplicação em produção, basta executar o comando `ng build --prod` e na pasta `dist/` se encontrarão os arquivos necessários para a execução em ambiente de produção. Se, por algum motivo, você queira buildar o projeto para outro ambiente que não seja produção basta executar somente o comando `ng build`, sem o `--prod`.
